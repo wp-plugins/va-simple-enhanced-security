@@ -36,7 +36,8 @@ To install VA Simple Enhanced Security:
 The description covers it all.
 
 ## Changelog
-
+### 0.0.2
+* Bug fix.
 ### 0.0.1
 * First public release.
 

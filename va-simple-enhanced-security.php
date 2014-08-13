@@ -5,7 +5,7 @@ Plugin Name: VA Simple Enhanced Security
 Plugin URI: https://github.com/VisuAlive/va-simple-enhanced-security
 Description: This plugin will enhance the security of your WordPress.
 Author: KUCKLU
-Version: 0.0.1
+Version: 0.0.2
 Author URI: http://visualive.jp/
 Text Domain: va-simple-enhanced-security
 Domain Path: /languages
@@ -92,7 +92,6 @@ class VA_SIMPLE_ENHANCED_SECURITY {
         add_filter( 'authenticate', array( &$this, '_allow_email_login' ), 20, 3 );
         add_filter( 'body_class', array( &$this, '_remove_body_class' ) );
         add_filter( 'gettext', array( &$this, '_changed_loginform_text' ), 20, 3 );
-        add_filter( 'login_errors', array( &$this, '_remove_login_errors' ) );
     }
 
     /**
@@ -156,15 +155,6 @@ class VA_SIMPLE_ENHANCED_SECURITY {
         }
 
         return $translated_text;
-    }
-
-    /**
-     * [Remove login errors]
-     * @param  [string] $message [description]
-     * @return [null]            [description]
-     */
-    function _remove_login_errors( $message ) {
-        return null;
     }
 
     /**
@@ -285,7 +275,7 @@ EOM;
      * @link http://wordpress.stackexchange.com/questions/77228
      */
     function add_author_base_field() {
-        printf( '<input type="text" class="regular-text" name="%1$s" id="%1$s" value="%2$s" />', esc_attr( 'author_base' ), esc_attr( get_option( 'author_base' ) ) );
+        printf( '<input type="text" class="regular-text" name="%1$s" id="%1$s" value="%2$s" />%3$s', esc_attr( 'author_base' ), esc_attr( get_option( 'author_base' ) ), PHP_EOL );
     }
 }
 new VA_SIMPLE_ENHANCED_SECURITY;
