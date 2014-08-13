@@ -285,7 +285,7 @@ EOM;
      * @link http://wordpress.stackexchange.com/questions/77228
      */
     function add_author_base_field() {
-        printf( '<input type="text" class="regular-text" name="%1$s" id="%1$s" value="%2$s" />', esc_attr( 'author_base' ), esc_attr( get_option( 'author_base' ) ) );
+        printf( '<input type="text" class="regular-text" name="%1$s" id="%1$s" value="%2$s" />%3$s', esc_attr( 'author_base' ), esc_attr( get_option( 'author_base' ) ), PHP_EOL );
     }
 }
 new VA_SIMPLE_ENHANCED_SECURITY;
