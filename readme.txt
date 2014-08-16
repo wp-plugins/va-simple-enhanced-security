@@ -39,7 +39,7 @@ The description covers it all.
 
 1. Login screen.
 2. Permalink settings.
-3. HTML of Autor page.
+3. HTML of author page.
 
 == Changelog ==
 
