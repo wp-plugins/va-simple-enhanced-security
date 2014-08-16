@@ -1,0 +1,70 @@
+.login form {
+    position: relative;
+    border-radius: 6px;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.login form label {
+    position: relative;
+    overflow: hidden;
+}
+.login form label:after {
+    font: normal 20px/1 'dashicons';
+    position: absolute;
+    right: 9px;
+    bottom: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #bfc9ca;
+    outline: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.login form label[for='user_login']:after {
+    content: '\f466';
+}
+.login form label[for='user_pass']:after {
+    content: '\f160';
+}
+.login.login-action-lostpassword form label[for='user_login']:after {
+    content: none;
+}
+.login form input[type=text],
+.login form input[type=password],
+.login form input[type=checkbox] {
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: border .4s ease;
+            transition: border .4s ease;
+    border: none;
+    border: solid 2px transparent;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+
+    -webkit-appearance: none;
+}
+.login form input[type=text]:focus,
+.login form input[type=password]:focus {
+    border-color: #2ea2cc;
+}
+.login form input[type=checkbox] {
+    border-radius: 0;
+}
+.login form .submit input[type='submit'] {
+    font-weight: normal;
+    -webkit-transition: background-color .4s ease;
+            transition: background-color .4s ease;
+    border: none;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.login .message,
+.login #login_error {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
