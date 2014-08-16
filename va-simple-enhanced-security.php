@@ -5,7 +5,7 @@ Plugin Name: VA Simple Enhanced Security
 Plugin URI: https://github.com/VisuAlive/va-simple-enhanced-security
 Description: This plugin will enhance the security of your WordPress.
 Author: KUCKLU
-Version: 0.0.2
+Version: 0.0.3
 Author URI: http://visualive.jp/
 Text Domain: va-simple-enhanced-security
 Domain Path: /languages
@@ -85,13 +85,20 @@ class VA_SIMPLE_ENHANCED_SECURITY {
 
     function _plugins_loaded() {
         add_action( 'login_init', array( &$this, '_basic_auth' ), 0 );
-        add_action( 'init', array( &$this, 'set_author_base' ) );
-        add_action( 'admin_init', array( &$this, 'echo_author_base_field') );
-        add_action( 'load-options-permalink.php', array( &$this, 'save_author_base') );
-        remove_filter( 'authenticate', array( &$this, '_wp_authenticate_username_password' ), 20, 3 );
+        add_action( 'init', array( &$this, '_set_author_base' ) );
+        add_action( 'admin_init', array( &$this, '_echo_author_base_field' ) );
+        add_action( 'load-options-permalink.php', array( &$this, '_save_author_base' ) );
+        add_action( 'login_enqueue_scripts', array( &$this, '_login_enqueue_scripts' ) );
+        remove_filter( 'authenticate', 'wp_authenticate_username_password', 20, 3 );
         add_filter( 'authenticate', array( &$this, '_allow_email_login' ), 20, 3 );
         add_filter( 'body_class', array( &$this, '_remove_body_class' ) );
         add_filter( 'gettext', array( &$this, '_changed_loginform_text' ), 20, 3 );
+    }
+
+    function _login_enqueue_scripts() {
+        wp_enqueue_style( 'dashicons' );
+        wp_enqueue_style( 'vases-login', VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_URL . 'assets/css/vases-login.css', array( 'dashicons' ) );
+        wp_print_styles();
     }
 
     /**
@@ -230,7 +237,7 @@ EOM;
      * @link http://wordpress.stackexchange.com/questions/77228
      * @param [type] $base [description]
      */
-    function set_author_base( $base = null ) {
+    function _set_author_base( $base = null ) {
         global $wp_rewrite;
         $base = get_option('author_base');
 
@@ -245,8 +252,8 @@ EOM;
      * @link http://wordpress.stackexchange.com/questions/77228
      * @return [type] [description]
      */
-    function echo_author_base_field() {
-        add_settings_field( 'author_base', __( 'Author Base', 'custom-author-base' ), array( &$this, 'add_author_base_field' ), 'permalink', 'optional', array( 'label_for' => 'author_base' ) );
+    function _echo_author_base_field() {
+        add_settings_field( 'author_base', __( 'Author base', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ), array( &$this, '_add_author_base_field' ), 'permalink', 'optional', array( 'label_for' => 'author_base' ) );
     }
 
     /**
@@ -254,7 +261,7 @@ EOM;
      * @link http://wordpress.stackexchange.com/questions/77228
      * @return [type] [description]
      */
-    function save_author_base() {
+    function _save_author_base() {
         if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
             return;
         }
@@ -264,7 +271,7 @@ EOM;
             $res = sanitize_title_with_dashes( $_POST['author_base'] );
             // $res = stripslashes_deep( $_POST['author_base'] );
             update_option( 'author_base', $res );
-            $this->set_author_base( $res );
+            $this->_set_author_base( $res );
         } else {
             delete_option( 'author_base' );
         }
@@ -274,7 +281,7 @@ EOM;
      * [add_author_base_field]
      * @link http://wordpress.stackexchange.com/questions/77228
      */
-    function add_author_base_field() {
+    function _add_author_base_field() {
         printf( '<input type="text" class="regular-text" name="%1$s" id="%1$s" value="%2$s" />%3$s', esc_attr( 'author_base' ), esc_attr( get_option( 'author_base' ) ), PHP_EOL );
     }
 }

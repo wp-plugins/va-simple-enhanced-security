@@ -35,8 +35,17 @@ To install VA Simple Enhanced Security:
 
 The description covers it all.
 
+== Screenshots ==
+
+1. Login screen.
+2. Permalink settings.
+3. HTML of Autor page.
+
 == Changelog ==
 
+= 0.0.3 =
+* Bug fix.
+* Change the design of the login screen.
 = 0.0.2 =
 * Bug fix.
 = 0.0.1 =
