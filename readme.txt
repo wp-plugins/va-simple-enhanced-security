@@ -3,14 +3,14 @@ Contributors: kuck1u
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TNPKX9MAJL7C8
 Tags: Basic auth, BasicAuth, Auth, Security, wp-admin, wp-login, author, author base, author slug, nicename, permalink, permalinks, role, roles, slug, user, user nicename, users, body_class, email, email login, login, Email address
 Requires at least: 3.9.1
-Tested up to: 4.0-beta4
+Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin will enhance the security of your WordPress.
 
-== Description ==
+== Description ==q
 
 This plugin will enhance the security of your WordPress.  
 This plugin the very simple.
@@ -42,6 +42,10 @@ The description covers it all.
 3. HTML of author page.
 
 == Changelog ==
+
+= 0.0.4 =
+* Bug fix.
+* Test of ver4.0.
 
 = 0.0.3 =
 * Bug fix.

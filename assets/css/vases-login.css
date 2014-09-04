@@ -47,6 +47,10 @@
 
     -webkit-appearance: none;
 }
+.login form input[type=text],
+.login form input[type=password] {
+    padding-right: 24px;
+}
 .login form input[type=text]:focus,
 .login form input[type=password]:focus {
     border-color: #2ea2cc;

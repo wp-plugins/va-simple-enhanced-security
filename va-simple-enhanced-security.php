@@ -47,20 +47,20 @@ define( 'VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH', plugin_dir_path(__FILE__) );
 define( 'VA_SIMPLE_ENHANCED_SECURITY_DOMAIN', dirname( plugin_basename(__FILE__) ) );
 define( 'VA_SIMPLE_ENHANCED_SECURITY_VERSION', $vaes_plugin_data['ver'] );
 define( 'VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN', $vaes_plugin_data['mo'] );
+register_activation_hook( __FILE__, array( 'VA_SIMPLE_ENHANCED_SECURITY', '_activation' ) );
+register_deactivation_hook( __FILE__, array( 'VA_SIMPLE_ENHANCED_SECURITY', '_deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'VA_SIMPLE_ENHANCED_SECURITY', '_uninstall' ) );
 
 class VA_SIMPLE_ENHANCED_SECURITY {
     function __construct() {
         add_action( 'plugins_loaded', array( &$this, '_plugins_loaded') );
-        register_activation_hook( __FILE__, array( &$this, '_activation' ) );
-        register_deactivation_hook( __FILE__, array( &$this, '_deactivation' ) );
-        register_uninstall_hook( __FILE__, array( &$this, '_uninstall' ) );
     }
 
     /**
      * [Activation]
      * @return [type] [description]
      */
-    function _activation() {
+    public static function _activation() {
         self::_edit_htaccess( 'activation' );
         flush_rewrite_rules();
     }
@@ -69,7 +69,7 @@ class VA_SIMPLE_ENHANCED_SECURITY {
      * [Deactivation]
      * @return [type] [description]
      */
-    function _deactivation() {
+    public static function _deactivation() {
         delete_option( 'rewrite_rules' );
     }
 
@@ -77,7 +77,7 @@ class VA_SIMPLE_ENHANCED_SECURITY {
      * [Uninstall]
      * @return [type] [description]
      */
-    function _uninstall() {
+    public static function _uninstall() {
         self::_edit_htaccess( 'uninstall' );
         delete_option( 'author_base' );
         delete_option( 'rewrite_rules' );
@@ -170,15 +170,15 @@ class VA_SIMPLE_ENHANCED_SECURITY {
      * @param  boolean $action [description]
      * @return [type]          [description]
      */
-    public function _edit_htaccess( $action = false ) {
+    public static function _edit_htaccess( $action = false ) {
         $htaccess_rewrite_rule = <<< EOM
-# BEGIN VA Enhanced Security
+# BEGIN VA Simple Enhanced Security
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </IfModule>
-# END VA Enhanced Security
+# END VA Simple Enhanced Security
 
 
 EOM;
