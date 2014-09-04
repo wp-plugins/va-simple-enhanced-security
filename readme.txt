@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin will enhance the security of your WordPress.
 
-== Description ==q
+== Description ==
 
 This plugin will enhance the security of your WordPress.  
 This plugin the very simple.
