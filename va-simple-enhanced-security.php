@@ -5,7 +5,7 @@ Plugin Name: VA Simple Enhanced Security
 Plugin URI: https://github.com/VisuAlive/va-simple-enhanced-security
 Description: This plugin will enhance the security of your WordPress.
 Author: KUCKLU
-Version: 0.0.3
+Version: 0.0.4
 Author URI: http://visualive.jp/
 Text Domain: va-simple-enhanced-security
 Domain Path: /languages
