@@ -1,0 +1,271 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VASES 0.3.1\n"
+"POT-Creation-Date: 2014-12-25 15:58+0900\n"
+"PO-Revision-Date: 2014-12-25 16:17+0900\n"
+"Last-Translator: VisuAlive - KUCKLU <kuck1u@visualive.jp>\n"
+"Language-Team: VisuAlive - KUCKLU <kuck1u@visualive.jp>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../incs/class-module-author-base.php:74
+#: ../incs/class-module-settings-api.php:191
+msgid "Author base"
+msgstr "著者ベース"
+
+#: ../incs/class-module-basic-auth.php:80
+#: ../incs/class-module-digest-auth.php:93
+msgid "Authorization Required."
+msgstr "このページの表示には認証が必要です。"
+
+#: ../incs/class-module-basic-auth.php:80
+#: ../incs/class-module-digest-auth.php:93
+msgid "Authorization Required"
+msgstr "このページの表示には認証が必要です"
+
+#: ../incs/class-module-email-login.php:118
+msgid ""
+"<strong>ERROR</strong>: The password you entered for the username is "
+"incorrect."
+msgstr ""
+
+#: ../incs/class-module-email-login.php:165
+msgid "<strong>ERROR</strong>: Invalid username or incorrect password."
+msgstr ""
+
+#. translators: 1: HTTP auth id, 2: HTTP auth pw, 3: admin email
+#: ../incs/class-module-send-mail.php:41
+#, php-format
+msgid ""
+"Hi,\n"
+"\n"
+"This time, security of the site has been enhanced.\n"
+"In order to open the administration screen, you must have HTTP "
+"authentication.\n"
+"Will inform your HTTP authentication information.\n"
+"\n"
+"[HTTP auth username] %1$s\n"
+"[HTTP auth password] %2$s\n"
+"\n"
+"Please contact us for any questions until administrator.\n"
+"contact us : %3$s"
+msgstr ""
+"こんにちわ。\n"
+"\n"
+"この度、サイトのセキュリティが強化され、管理画面を開く為には HTTP 認証が必要"
+"になりました。\n"
+"あなたの HTTP 認証情報をお知らせします。\n"
+"\n"
+"[HTTP 認証ユーザー名] %1$s\n"
+"[HTTP 認証パスワード] %2$s\n"
+"\n"
+"ご不明な点は管理者迄お問い合わせください。\n"
+"お問い合わせ先 : %3$s"
+
+#: ../incs/class-module-send-mail.php:52
+#, php-format
+msgid "[%s] HTTP authentication information."
+msgstr "[%s] HTTP 認証情報"
+
+#: ../incs/class-module-settings-api.php:134
+msgid "Security"
+msgstr "セキュリティ"
+
+#: ../incs/class-module-settings-api.php:144
+msgid "Security settings"
+msgstr "セキュリティ設定"
+
+#: ../incs/class-module-settings-api.php:177
+msgid "HTTP auth type"
+msgstr "HTTP 認証タイプ"
+
+#: ../incs/class-module-settings-api.php:184
+msgid "Auth method of<br>login form"
+msgstr "ログインフォームの認証方法"
+
+#: ../incs/class-module-settings-api.php:198
+msgid "Remove css class"
+msgstr "CSS クラスの削除"
+
+#: ../incs/class-module-settings-api.php:205
+msgid "XMLRPC login"
+msgstr "XMLRPC でのログイン"
+
+#: ../incs/class-module-settings-api.php:212
+msgid "XMLRPC pingback"
+msgstr "XMLRPC でのピンバック"
+
+#: ../incs/class-module-settings-api.php:219
+msgid "File edit"
+msgstr "ファイル編集"
+
+#: ../incs/class-module-settings-api.php:226
+msgid "Unfiltered html"
+msgstr "フィルタリングされていない HTML"
+
+#: ../incs/class-module-settings-api.php:233
+msgid "Auto update plugin"
+msgstr "プラグインの自動更新"
+
+#: ../incs/class-module-settings-api.php:240
+msgid "Auto update theme"
+msgstr "テーマの自動更新"
+
+#: ../incs/class-module-settings-api.php:249
+msgid "Donation"
+msgstr "寄付"
+
+#: ../incs/class-module-settings-api.php:262
+msgid "None"
+msgstr "保護しない"
+
+#: ../incs/class-module-settings-api.php:263
+msgid "Basic auth"
+msgstr "ベーシック認証"
+
+#: ../incs/class-module-settings-api.php:264
+msgid "Digest auth"
+msgstr "ダイジェスト認証"
+
+#: ../incs/class-module-settings-api.php:268
+msgid ""
+"<span style=\"color: #f00; font-weight: bold;\">※Because "
+"VASES_AUTH_INVALIDATE has been defined HTTP authentication function does not "
+"work.</span>"
+msgstr ""
+"<span style=\"color: #f00; font-weight: bold;\">※ VASES_AUTH_INVALIDATE が定"
+"義されている為 HTTP 認証は機能しません。</span>"
+
+#: ../incs/class-module-settings-api.php:271
+msgid "※Protect the login page in HTTP authentication."
+msgstr "※ログインページを HTTP 認証で保護します。"
+
+#: ../incs/class-module-settings-api.php:273
+msgid ""
+"※Username and password for exclusive use of the HTTP certification are "
+"transmitted to all users automatically for the first time only."
+msgstr ""
+"※初回のみ HTTP 認証専用のユーザー名とパスワードがすべてのユーザーに自動送信さ"
+"れます。"
+
+#: ../incs/class-module-settings-api.php:275
+msgid "※May not function properly depending on the environment."
+msgstr "※環境によって正常に機能しない場合があります。"
+
+#: ../incs/class-module-settings-api.php:285
+msgid "Login in with email address and password."
+msgstr "メールアドレスとパスワードでログインする。"
+
+#: ../incs/class-module-settings-api.php:286
+msgid "※Cannot login in the username and password."
+msgstr "※ユーザー名とパスワードではログイン出来なくなります。"
+
+#: ../incs/class-module-settings-api.php:297
+msgid "Change base URL of author archive."
+msgstr "著者アーカイブのベース URL を変更する。"
+
+#: ../incs/class-module-settings-api.php:298
+msgid "※Change base URL in the permalink page."
+msgstr "※ベース URL の変更はパーマリンク設定ページで行えます。"
+
+#: ../incs/class-module-settings-api.php:309
+msgid "Remove css class of author info from body_class()."
+msgstr "body_class() から著者情報の CSS クラスを削除する。"
+
+#: ../incs/class-module-settings-api.php:320
+msgid "Disallow XMLRPC login"
+msgstr "XMLRPC でのログインを許可しない。"
+
+#: ../incs/class-module-settings-api.php:331
+msgid "Disallow XMLRPC pingback"
+msgstr "XMLRPC でのピンバックを許可しない。"
+
+#: ../incs/class-module-settings-api.php:342
+msgid "Disallow file edit."
+msgstr "ファイル編集を許可しない。"
+
+#: ../incs/class-module-settings-api.php:353
+msgid "Disallow unfiltered html."
+msgstr "フィルタリングされていない HTML の使用を許可しない。"
+
+#: ../incs/class-module-settings-api.php:364
+msgid "Automatically update the plugins that are installed on WordPress."
+msgstr "WordPress にインストールされいるプラグインを自動的にアップデートする。"
+
+#: ../incs/class-module-settings-api.php:375
+msgid "Automatically update the themes that are installed on WordPress."
+msgstr "WordPress にインストールされいるテーマを自動的にアップデートする。"
+
+#: ../incs/class-module-settings-api.php:388
+msgid "Do you like this plugin?"
+msgstr "このプラグインは気に入っていただけましたか？"
+
+#: ../incs/class-module-settings-api.php:389
+msgid "VA Simple Enhanced Security plugin need your help."
+msgstr "VA Simple Enhanced Security はあなたの助けを必要としています。"
+
+#: ../incs/class-module-settings-api.php:390
+msgid "This plugin may become better by your donation."
+msgstr ""
+"このプラグインは、あなたからの手助けによってより良いものになるかもしれませ"
+"ん。"
+
+#: ../incs/class-module-settings-api.php:392
+msgid "※ Donations are voluntary."
+msgstr "※ 寄付は任意です。"
+
+#: ../incs/class-module-settings-api.php:406
+msgid "HTTP auth info"
+msgstr "HTTP 認証情報"
+
+#: ../incs/class-module-settings-api.php:410
+msgid "HTTP auth username"
+msgstr "HTTP 認証用ユーザー名"
+
+#: ../incs/class-module-settings-api.php:414
+msgid "Usernames cannot be changed."
+msgstr "ユーザー名は変更できません。"
+
+#: ../incs/class-module-settings-api.php:419
+msgid "HTTP auth password"
+msgstr "HTTP 認証用パスワード"
+
+#: ../incs/class-module-settings-api.php:423
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:428
+msgid "Repeat HTTP auth password"
+msgstr "HTTP 認証用パスワードの確認"
+
+#: ../incs/class-module-settings-api.php:432
+msgid "Type your new password again."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:452
+msgid ""
+"<strong>ERROR</strong>: Please enter the same password in the two password "
+"fields."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:454
+#: ../incs/class-module-settings-api.php:456
+msgid "<strong>ERROR</strong>: You entered your new password only once."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:459
+msgid "<strong>ERROR</strong>: Passwords may not contain the character \"\\\"."
+msgstr ""
+
+#~ msgid "HTTP auth credentials"
+#~ msgstr "HTTP認証"
