@@ -45,6 +45,12 @@ The description covers it all.
 
 == Changelog ==
 
+= 0.3.4 =
+* Bug fix.
+
+= 0.3.3 =
+* Bug fix.
+
 = 0.3.2 =
 * New user registration when HTTP authentication information issue.
 

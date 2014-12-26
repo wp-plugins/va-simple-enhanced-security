@@ -1,19 +1,20 @@
-.login form {
+.login #loginform {
     position: relative;
     border-radius: 6px;
     background-color: #fff;
     -webkit-box-shadow: none;
             box-shadow: none;
 }
-.login form label {
+.login #loginform label {
+    display: block;
     position: relative;
     overflow: hidden;
 }
-.login form label:after {
+.login #loginform label:after {
     font: normal 20px/1 'dashicons';
     position: absolute;
-    right: 9px;
-    bottom: 3px;
+    right: 4px;
+    bottom: 26px;
     display: inline-block;
     vertical-align: middle;
     color: #bfc9ca;
@@ -22,18 +23,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.login form label[for='user_login']:after {
+.login #loginform label[for='user_login']:after {
     content: '\f466';
 }
-.login form label[for='user_pass']:after {
+.login #loginform label[for='user_pass']:after {
     content: '\f160';
 }
-.login.login-action-lostpassword form label[for='user_login']:after {
+.login.login-action-lostpassword #loginform label[for='user_login']:after {
     content: none;
 }
-.login form input[type=text],
-.login form input[type=password],
-.login form input[type=checkbox] {
+.login #loginform input[type=text],
+.login #loginform input[type=password],
+.login #loginform input[type=checkbox] {
     position: relative;
     overflow: hidden;
     -webkit-transition: border .4s ease;
@@ -47,18 +48,18 @@
 
     -webkit-appearance: none;
 }
-.login form input[type=text],
-.login form input[type=password] {
+.login #loginform input[type=text],
+.login #loginform input[type=password] {
     padding-right: 24px;
 }
-.login form input[type=text]:focus,
-.login form input[type=password]:focus {
+.login #loginform input[type=text]:focus,
+.login #loginform input[type=password]:focus {
     border-color: #2ea2cc;
 }
-.login form input[type=checkbox] {
+.login #loginform input[type=checkbox] {
     border-radius: 0;
 }
-.login form .submit input[type='submit'] {
+.login #loginform .submit input[type='submit'] {
     font-weight: normal;
     -webkit-transition: background-color .4s ease;
             transition: background-color .4s ease;

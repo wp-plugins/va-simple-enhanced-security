@@ -66,8 +66,12 @@ class VASES_MODUL_EMAIL_LOGIN {
      * @return boolean
      */
     function allow_email_login( $user, $username, $password ) {
-        if ( ! empty( $username ) && ! empty( $password ) && is_email( $username ) ) {
-            $user = get_user_by( 'email', $username );
+        if ( ! empty( $username ) && ! empty( $password ) ) {
+            if ( is_email( $username ) ) {
+                $user = get_user_by( 'email', $username );
+            } else {
+                $user = get_user_by( 'login', $username );
+            }
 
             if ( isset( $user, $user->user_login ) ) {
                 $username = $user->user_login;
