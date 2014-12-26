@@ -1,9 +1,9 @@
 === VA Simple Enhanced Security ===
 Contributors: kuck1u
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TNPKX9MAJL7C8
-Tags: Basic auth, BasicAuth, Auth, Security, wp-admin, wp-login, author, author base, author slug, nicename, permalink, permalinks, role, roles, slug, user, user nicename, users, body_class, email, email login, login, Email address
+Tags: Basic auth, BasicAuth, Digest auth, DigestAuth, Auth, authentication, Security, xmlrpc, wp-admin, wp-login, author, author base, author slug, nicename, permalink, permalinks, role, roles, slug, user, user nicename, users, body_class, email, email login, login, Email address
 Requires at least: 3.9.1
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,10 +16,11 @@ This plugin will enhance the security of your WordPress.
 This plugin the very simple.
 
 = Can do this plugin =
-* Basic auth to dashboard and login page.
+* Can protect the management screen and login screen in Basic authentication or Digest authentication.
 * Change the author base.
 * Change to email login from username login.
 * Author information is deleted by body_class().
+* etc.
 
 == Installation ==
 
@@ -40,8 +41,29 @@ The description covers it all.
 1. Login screen.
 2. Permalink settings.
 3. HTML of author page.
+4. Admin.
 
 == Changelog ==
+
+= 0.3.1 =
+* Add define VASES_AUTH_INVALIDATE.
+* Bug fix.
+
+= 0.3.0 =
+* Add language file.
+
+= 0.2.1 =
+* The case of XMLRPC, Fixed a bug that could not login in e-mail address.
+
+= 0.2.0 =
+* Digest auth support.
+
+= 0.1.0 =
+* add admin setting page.  
+Some functions of this plugin may be invalidated.  
+But, please feel relieved.  
+Have to do all of the settings in the management screen .  
+Please do the various settings in 'Dashboard-> Settings-> security'.
 
 = 0.0.4 =
 * Bug fix.
@@ -56,5 +78,3 @@ The description covers it all.
 
 = 0.0.1 =
 * First public release.
-
-
