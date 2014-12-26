@@ -38,6 +38,9 @@ The description covers it all.
 
 ## Changelog
 
+### 0.3.2
+* New user registration when HTTP authentication information issue.
+
 ### 0.3.1
 * Add define VASES_AUTH_INVALIDATE.
 * Bug fix.

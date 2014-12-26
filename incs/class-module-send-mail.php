@@ -21,6 +21,7 @@ class VASES_MODUL_SEND_MAIL {
 
     public function __construct() {
         add_action( 'vases_http_auth_send_mail', array( &$this, 'send_mail_processing' ) );
+        add_action( 'user_register',             array( &$this, 'send_mail_user_register' ) );
     }
 
     /**
@@ -61,6 +62,23 @@ contact us : %3$s', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN );
             $auth_pass = VASES_MODUL_APIS::make_rand_string();
             update_user_meta( $user->ID, 'vases_http_auth_user', $auth_user );
             update_user_meta( $user->ID, 'vases_http_auth_pass', VASES_MODUL_APIS::encrypt( $auth_user, $auth_pass ) );
+            if ( isset( $user->user_email ) && !empty( $user->user_email ) ) {
+                self::vases_mail( $user->user_email, $auth_user, $auth_pass );
+            }
+        }
+    }
+
+    public function send_mail_user_register( $user_id ) {
+        $settings = VASES_MODUL_SETTINGS_API::init();
+        $auth     = ( isset( $settings->args['auth'] ) && !empty( $settings->args['auth'] ) ) ? intval( $settings->args['auth'] ) : 0;
+        $user     = get_userdata( $user_id );
+
+        if ( ( 1 == $auth || 2 == $auth ) && false != $user ) {
+            $user      = $user->data;
+            $auth_user = $user->user_login;
+            $auth_pass = VASES_MODUL_APIS::make_rand_string();
+            add_user_meta( $user->ID, 'vases_http_auth_user', $auth_user );
+            add_user_meta( $user->ID, 'vases_http_auth_pass', VASES_MODUL_APIS::encrypt( $auth_user, $auth_pass ) );
             if ( isset( $user->user_email ) && !empty( $user->user_email ) ) {
                 self::vases_mail( $user->user_email, $auth_user, $auth_pass );
             }
