@@ -1,0 +1,75 @@
+.login #loginform {
+    position: relative;
+    border-radius: 6px;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.login #loginform label {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.login #loginform label:after {
+    font: normal 20px/1 'dashicons';
+    position: absolute;
+    right: 4px;
+    bottom: 26px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #bfc9ca;
+    outline: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.login #loginform label[for='user_login']:after {
+    content: '\f466';
+}
+.login #loginform label[for='user_pass']:after {
+    content: '\f160';
+}
+.login.login-action-lostpassword #loginform label[for='user_login']:after {
+    content: none;
+}
+.login #loginform input[type=text],
+.login #loginform input[type=password],
+.login #loginform input[type=checkbox] {
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: border .4s ease;
+            transition: border .4s ease;
+    border: none;
+    border: solid 2px #f5f5f5;
+    border-radius: 6px;
+    background-color: #fbfbfb;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+
+    -webkit-appearance: none;
+}
+.login #loginform input[type=text],
+.login #loginform input[type=password] {
+    padding-right: 24px;
+}
+.login #loginform input[type=text]:focus,
+.login #loginform input[type=password]:focus {
+    border-color: #2ea2cc;
+}
+.login #loginform input[type=checkbox] {
+    border-radius: 0;
+}
+.login #loginform .submit input[type='submit'] {
+    font-weight: normal;
+    -webkit-transition: background-color .4s ease;
+            transition: background-color .4s ease;
+    border: none;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.login .message,
+.login #login_error {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
