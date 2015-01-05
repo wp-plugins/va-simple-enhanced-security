@@ -36,7 +36,7 @@ class VASES_MODUL_DIGEST_AUTH {
         $flug_basic_auth = $settings->args['auth'];
 
         if ( 2 === $flug_basic_auth && ( !defined( 'VASES_AUTH_INVALIDATE' ) || !VASES_AUTH_INVALIDATE ) ) {
-            add_action( 'login_init', array( &$this, 'digest_auth' ), 0 );
+            add_action( 'login_init', array( &$this, 'digest_auth' ), 1 );
         }
     }
 

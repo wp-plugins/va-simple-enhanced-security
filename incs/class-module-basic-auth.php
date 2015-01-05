@@ -36,7 +36,7 @@ class VASES_MODUL_BASIC_AUTH {
         $flug_basic_auth = $settings->args['auth'];
 
         if ( 1 === $flug_basic_auth && ( !defined( 'VASES_AUTH_INVALIDATE' ) || !VASES_AUTH_INVALIDATE ) ) {
-            add_action( 'login_init', array( &$this, 'basic_auth' ), 0 );
+            add_action( 'login_init', array( &$this, 'basic_auth' ), 1 );
         }
     }
 
@@ -64,7 +64,7 @@ class VASES_MODUL_BASIC_AUTH {
              && preg_match( '/Basic\s+(.*)\z/i', $_SERVER['HTTP_AUTHORIZATION'], $matches )
         ) {
             list( $php_user, $php_pass ) = explode( ':', base64_decode( $matches[1] ) );
-            $php_user                  = strip_tags( $php_user );
+            $php_user                    = strip_tags( $php_user );
             $php_pass                    = strip_tags( $php_pass );
         }
 

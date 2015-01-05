@@ -41,9 +41,8 @@ class VASES_MODUL_SETTINGS_API {
      * @static
      */
     public static function init() {
-        if ( ! self::$instance ) {
+        if ( ! self::$instance )
             self::$instance = new VASES_MODUL_SETTINGS_API;
-        }
 
         return self::$instance;
     }
@@ -55,6 +54,7 @@ class VASES_MODUL_SETTINGS_API {
     public function dummy_settings() {
         return array(
             'auth'                     => 0,
+            'ip_limitation'            => array(),
             'email_login'              => 0,
             'author_base'              => 0,
             'remove_body_class'        => 0,
@@ -74,6 +74,7 @@ class VASES_MODUL_SETTINGS_API {
     public function default_settings() {
         $args = array(
             'auth'                     => 0,
+            'ip_limitation'            => array(),
             'email_login'              => 1,
             'author_base'              => 1,
             'remove_body_class'        => 1,
@@ -102,8 +103,24 @@ class VASES_MODUL_SETTINGS_API {
      */
     public function validation_admin_form( $settings ) {
         $settings = wp_parse_args( $settings, self::dummy_settings() );
+        if ( isset( $settings['ip_limitation'] ) && !empty( $settings['ip_limitation'] ) ) {
+            $remote_addr_regex = "/\A(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\z/";
+            $remote_host_regex = "/\A(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])\z/";
 
+            foreach ( $settings['ip_limitation'] as $key => $value ) {
+                $remote_addr = preg_match( $remote_addr_regex, $value );
+                $remote_host = preg_match( $remote_host_regex, $value );
+                if ( empty( $value ) || ( !$remote_addr && !$remote_host ) )
+                    unset( $settings['ip_limitation'][$key] );
+            }
+            foreach ( $settings['ip_limitation'] as $key => $value ) {
+                $settings['ip_limitation'][$key] = sanitize_text_field( $value );
+            }
+        }
         foreach ( $settings as $key => $value ) {
+            if ( 'ip_limitation' == $key )
+                continue;
+
             if ( 'auth' == $key ) {
                 $settings[$key] = ( 0 === intval( $value ) || 1 === intval( $value ) || 2 === intval( $value ) ) ? intval( $value ): 0;
             } else {
@@ -176,6 +193,13 @@ class VASES_MODUL_SETTINGS_API {
             'vases_auth',
             __( 'HTTP auth type', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ),
             array( &$this, 'render_auth' ),
+            'security_settings',
+            'security_setting_sections'
+        );
+        add_settings_field(
+            'vases_ip_limitation',
+            __( 'Restrict access to the login / admin page', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ),
+            array( &$this, 'render_ip_limitation' ),
             'security_settings',
             'security_setting_sections'
         );
@@ -268,11 +292,45 @@ class VASES_MODUL_SETTINGS_API {
         <?php _e( '<span style="color: #f00; font-weight: bold;">※Because VASES_AUTH_INVALIDATE has been defined HTTP authentication function does not work.</span>', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?>
         <?php endif; ?>
         <br>
-        <?php _e( '※Protect the login page in HTTP authentication.', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?>
+        <?php _e( 'Protect the login / admin page in HTTP authentication.', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?>
         <br>
         <?php _e( '※Username and password for exclusive use of the HTTP certification are transmitted to all users automatically for the first time only.', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?>
         <br>
         <?php _e( '※May not function properly depending on the environment.', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?>
+        <?php
+    }
+
+    public function render_ip_limitation() {
+        $settings    = self::get_settings();
+        $field_id    = 0;
+        $remote_addr = $_SERVER['REMOTE_ADDR'];
+        $remote_host = @gethostbyaddr( $remote_addr );
+        if ( !$remote_addr )
+            $remote_addr = 'Unknown';
+        if ( !$remote_host || $remote_host == $remote_addr )
+            $remote_host = 'Unknown';
+        ?>
+        <label id="vases_settings_ip_limitation">
+            <?php if ( isset( $settings['ip_limitation'] ) && !empty( $settings['ip_limitation'] ) ) : ?>
+            <?php
+                foreach( $settings['ip_limitation'] as $value ) :
+                    if ( $value === reset( $settings['ip_limitation'] ) ) :
+            ?>
+                <input type='text' id="vases_settings_ip_limitation_field_<?php echo $field_id; ?>" class="regular-text" name='vases_settings[ip_limitation][]' value='<?php esc_html_e( $value ); ?>' />
+                <?php else : ?>
+                <br><input type='text' id="vases_settings_ip_limitation_field_<?php echo $field_id; ?>" class="regular-text" name='vases_settings[ip_limitation][]' value='<?php esc_html_e( $value ); ?>' />
+                <?php endif; ?>
+            <?php $field_id++; endforeach; ?>
+            <?php else : ?>
+            <input type='text' id="vases_settings_ip_limitation_field_<?php echo $field_id; ?>" class="regular-text" name='vases_settings[ip_limitation][]' value='' />
+            <?php endif; ?>
+            <input id="vases-clear-button" class="button vases-clear-button" type="button" value="<?php _e( 'Add field', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?>" />
+        </label>
+        <p>
+            <?php _e( 'Restrict access to the login / admin page in the IP address or host name.', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ); ?><br>
+            <?php echo sprintf( __( '※Your now IP address : %s', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ), $remote_addr ); ?><br>
+            <?php echo sprintf( __( '※Your now hostname : %s', VA_SIMPLE_ENHANCED_SECURITY_TEXTDOMAIN ), $remote_host ); ?>
+        </p>
         <?php
     }
 
@@ -440,12 +498,10 @@ class VASES_MODUL_SETTINGS_API {
         $auth_user   = get_user_meta( $user->ID, 'vases_http_auth_user', true );
         $auth_pass_1 = $auth_pass_2 = '';
 
-        if ( !empty( $_POST['vases_http_auth_pass_1'] ) ) {
+        if ( !empty( $_POST['vases_http_auth_pass_1'] ) )
             $auth_pass_1 = sanitize_text_field( $_POST['vases_http_auth_pass_1'] );
-        }
-        if ( !empty( $_POST['vases_http_auth_pass_2'] ) ) {
+        if ( !empty( $_POST['vases_http_auth_pass_2'] ) )
             $auth_pass_2 = sanitize_text_field( $_POST['vases_http_auth_pass_2'] );
-        }
 
         /* checking the error */
         if ( $auth_pass_1 !== $auth_pass_2 ) {
@@ -455,13 +511,11 @@ class VASES_MODUL_SETTINGS_API {
         } elseif ( !empty( $auth_pass_1 ) && empty( $auth_pass_2 ) ) {
             $errors->add( 'vases_http_auth_pass', __( '<strong>ERROR</strong>: You entered your new password only once.' ), array( 'form-field' => 'vases_http_auth_pass_2' ) );
         }
-        if ( false !== strpos( wp_unslash( $auth_pass_1 ), "\\" ) ) {
+        if ( false !== strpos( wp_unslash( $auth_pass_1 ), "\\" ) )
             $errors->add( 'vases_http_auth_pass', __( '<strong>ERROR</strong>: Passwords may not contain the character "\\".' ), array( 'form-field' => 'vases_http_auth_pass_1' ) );
-        }
 
-        if ( $errors->get_error_codes() ) {
+        if ( $errors->get_error_codes() )
             return;
-        }
 
         if ( preg_match( '/\A[¥x20-¥x7F].+\z/i', $auth_pass_1 ) && !empty( $auth_pass_1 ) ) {
             $auth_pass_1 = VASES_MODUL_APIS::encrypt( $auth_user, $auth_pass_1 );

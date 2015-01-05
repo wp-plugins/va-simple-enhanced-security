@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: VASES 0.3.1\n"
-"POT-Creation-Date: 2014-12-25 16:15+0900\n"
-"PO-Revision-Date: 2014-12-25 16:16+0900\n"
+"Project-Id-Version: VASES 0.4.3\n"
+"POT-Creation-Date: 2015-01-05 00:56+0900\n"
+"PO-Revision-Date: 2015-01-05 00:57+0900\n"
 "Last-Translator: VisuAlive - KUCKLU <kuck1u@visualive.jp>\n"
 "Language-Team: VisuAlive - KUCKLU <kuck1u@visualive.jp>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../incs/class-module-author-base.php:74
-#: ../incs/class-module-settings-api.php:191
+#: ../incs/class-module-settings-api.php:215
 msgid "Author base"
 msgstr ""
 
@@ -31,18 +31,26 @@ msgstr ""
 msgid "Authorization Required"
 msgstr ""
 
-#: ../incs/class-module-email-login.php:118
+#: ../incs/class-module-email-login.php:122
 msgid ""
 "<strong>ERROR</strong>: The password you entered for the username is "
 "incorrect."
 msgstr ""
 
-#: ../incs/class-module-email-login.php:165
+#: ../incs/class-module-email-login.php:169
 msgid "<strong>ERROR</strong>: Invalid username or incorrect password."
 msgstr ""
 
+#: ../incs/class-module-ip-limitation.php:84
+msgid "403 Forbidden."
+msgstr ""
+
+#: ../incs/class-module-ip-limitation.php:84
+msgid "403 Forbidden"
+msgstr ""
+
 #. translators: 1: HTTP auth id, 2: HTTP auth pw, 3: admin email
-#: ../incs/class-module-send-mail.php:41
+#: ../incs/class-module-send-mail.php:42
 #, php-format
 msgid ""
 "Hi,\n"
@@ -59,193 +67,216 @@ msgid ""
 "contact us : %3$s"
 msgstr ""
 
-#: ../incs/class-module-send-mail.php:52
+#: ../incs/class-module-send-mail.php:53
 #, php-format
 msgid "[%s] HTTP authentication information."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:134
+#: ../incs/class-module-settings-api.php:151
 msgid "Security"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:144
+#: ../incs/class-module-settings-api.php:161
 msgid "Security settings"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:177
+#: ../incs/class-module-settings-api.php:194
 msgid "HTTP auth type"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:184
+#: ../incs/class-module-settings-api.php:201
+msgid "Restrict access to the login / admin page"
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:208
 msgid "Auth method of<br>login form"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:198
+#: ../incs/class-module-settings-api.php:222
 msgid "Remove css class"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:205
+#: ../incs/class-module-settings-api.php:229
 msgid "XMLRPC login"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:212
+#: ../incs/class-module-settings-api.php:236
 msgid "XMLRPC pingback"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:219
+#: ../incs/class-module-settings-api.php:243
 msgid "File edit"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:226
+#: ../incs/class-module-settings-api.php:250
 msgid "Unfiltered html"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:233
+#: ../incs/class-module-settings-api.php:257
 msgid "Auto update plugin"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:240
+#: ../incs/class-module-settings-api.php:264
 msgid "Auto update theme"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:249
+#: ../incs/class-module-settings-api.php:273
 msgid "Donation"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:262
+#: ../incs/class-module-settings-api.php:286
 msgid "None"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:263
+#: ../incs/class-module-settings-api.php:287
 msgid "Basic auth"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:264
+#: ../incs/class-module-settings-api.php:288
 msgid "Digest auth"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:268
+#: ../incs/class-module-settings-api.php:292
 msgid ""
 "<span style=\"color: #f00; font-weight: bold;\">※Because "
 "VASES_AUTH_INVALIDATE has been defined HTTP authentication function does not "
 "work.</span>"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:271
-msgid "※Protect the login page in HTTP authentication."
+#: ../incs/class-module-settings-api.php:295
+msgid "Protect the login / admin page in HTTP authentication."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:273
+#: ../incs/class-module-settings-api.php:297
 msgid ""
 "※Username and password for exclusive use of the HTTP certification are "
 "transmitted to all users automatically for the first time only."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:275
+#: ../incs/class-module-settings-api.php:299
 msgid "※May not function properly depending on the environment."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:285
-msgid "Login in with email address and password."
+#: ../incs/class-module-settings-api.php:321
+msgid "Add field"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:286
-msgid "※Cannot login in the username and password."
+#: ../incs/class-module-settings-api.php:324
+msgid ""
+"Restrict access to the login / admin page in the IP address or host name."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:297
-msgid "Change base URL of author archive."
+#: ../incs/class-module-settings-api.php:325
+#, php-format
+msgid "※Your now IP address : %s"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:298
-msgid "※Change base URL in the permalink page."
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:309
-msgid "Remove css class of author info from body_class()."
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:320
-msgid "Disallow XMLRPC login"
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:331
-msgid "Disallow XMLRPC pingback"
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:342
-msgid "Disallow file edit."
+#: ../incs/class-module-settings-api.php:326
+#, php-format
+msgid "※Your now hostname : %s"
 msgstr ""
 
 #: ../incs/class-module-settings-api.php:353
-msgid "Disallow unfiltered html."
+msgid "Login in with email address and password."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:364
-msgid "Automatically update the plugins that are installed on WordPress."
+#: ../incs/class-module-settings-api.php:354
+msgid "※Cannot login in the username and password."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:375
-msgid "Automatically update the themes that are installed on WordPress."
+#: ../incs/class-module-settings-api.php:365
+msgid "Change base URL of author archive."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:366
+msgid "※Change base URL in the permalink page."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:377
+msgid "Remove css class of author info from body_class()."
 msgstr ""
 
 #: ../incs/class-module-settings-api.php:388
-msgid "Do you like this plugin?"
+msgid "Disallow XMLRPC login"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:389
-msgid "VA Simple Enhanced Security plugin need your help."
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:390
-msgid "This plugin may become better by your donation."
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:392
-msgid "※ Donations are voluntary."
-msgstr ""
-
-#: ../incs/class-module-settings-api.php:406
-msgid "HTTP auth info"
+#: ../incs/class-module-settings-api.php:399
+msgid "Disallow XMLRPC pingback"
 msgstr ""
 
 #: ../incs/class-module-settings-api.php:410
+msgid "Disallow file edit."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:421
+msgid "Disallow unfiltered html."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:432
+msgid "Automatically update the plugins that are installed on WordPress."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:443
+msgid "Automatically update the themes that are installed on WordPress."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:456
+msgid "Do you like this plugin?"
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:457
+msgid "VA Simple Enhanced Security plugin need your help."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:458
+msgid "This plugin may become better by your donation."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:460
+msgid "※ Donations are voluntary."
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:474
+msgid "HTTP auth info"
+msgstr ""
+
+#: ../incs/class-module-settings-api.php:478
 msgid "HTTP auth username"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:414
+#: ../incs/class-module-settings-api.php:482
 msgid "Usernames cannot be changed."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:419
+#: ../incs/class-module-settings-api.php:487
 msgid "HTTP auth password"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:423
+#: ../incs/class-module-settings-api.php:491
 msgid ""
 "If you would like to change the password type a new one. Otherwise leave "
 "this blank."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:428
+#: ../incs/class-module-settings-api.php:496
 msgid "Repeat HTTP auth password"
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:432
+#: ../incs/class-module-settings-api.php:500
 msgid "Type your new password again."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:452
+#: ../incs/class-module-settings-api.php:518
 msgid ""
 "<strong>ERROR</strong>: Please enter the same password in the two password "
 "fields."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:454
-#: ../incs/class-module-settings-api.php:456
+#: ../incs/class-module-settings-api.php:520
+#: ../incs/class-module-settings-api.php:522
 msgid "<strong>ERROR</strong>: You entered your new password only once."
 msgstr ""
 
-#: ../incs/class-module-settings-api.php:459
+#: ../incs/class-module-settings-api.php:525
 msgid "<strong>ERROR</strong>: Passwords may not contain the character \"\\\"."
 msgstr ""

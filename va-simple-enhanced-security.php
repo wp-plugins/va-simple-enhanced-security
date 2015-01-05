@@ -5,7 +5,7 @@ Plugin Name: VA Simple Enhanced Security
 Plugin URI: https://github.com/VisuAlive/va-simple-enhanced-security
 Description: This plugin will enhance the security of your WordPress.
 Author: KUCKLU
-Version: 0.3.4
+Version: 0.4.4
 Author URI: http://visualive.jp/
 Text Domain: va-simple-enhanced-security
 Domain Path: /langs
@@ -55,6 +55,7 @@ require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-send-
 require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-apis.php' );
 require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-basic-auth.php' );
 require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-digest-auth.php' );
+require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-ip-limitation.php' );
 require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-email-login.php' );
 require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-author-base.php' );
 require_once( VA_SIMPLE_ENHANCED_SECURITY_PLUGIN_PATH . 'incs/class-module-etc.php' );
@@ -85,6 +86,7 @@ class VA_SIMPLE_ENHANCED_SECURITY {
         $send_mail      = VASES_MODUL_SEND_MAIL::init();
         $basic_auth     = VASES_MODUL_BASIC_AUTH::init();
         $digest_auth    = VASES_MODUL_DIGEST_AUTH::init();
+        $ip_limitation  = VASES_MODUL_IP_LIMITATION::init();
         $email_login    = VASES_MODUL_EMAIL_LOGIN::init();
         $author_base    = VASES_MODUL_AUTHOR_BASE::init();
         $etc            = VASES_MODUL_ETC::init();

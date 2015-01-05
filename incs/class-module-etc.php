@@ -47,18 +47,36 @@ class VASES_MODUL_ETC {
 
         /**
          * Delete the information of author from body class.
+         * @param  array $classes Array of the css class
+         * @return array          Array of the new css class
          */
         if ( $flug_remove_body_class == true ) {
-            add_filter( 'body_class', array( &$this, 'remove_body_class' ) );
+            add_filter( 'body_class', function ( $classes ) {
+                $subject     = $classes;
+                $pattern     = array( '/\A(author\-[\w+\-]*)\z/i' );
+                $replacement = array( '' );
+                $classes     = preg_replace( $pattern, $replacement, $subject );
+
+                return array_values( array_filter( $classes ) );
+            } );
         }
+        /**
+         * Disallow xmlrpc login.
+         */
         if ( $flug_xmlrpc_login_disallow == true ) {
             add_action( 'xmlrpc_enabled', '__return_false' );
         }
         /**
          * Disallow xmlrpc pingback.
+         * @param  array $methods An array of XML-RPC methods.
+         * @return array          An array of XML-RPC methods.
          */
         if ( $flug_xmlrpc_pingback_disallow == true ) {
-            add_filter( 'xmlrpc_methods', array( &$this, 'xmlrpc_methods' ) );
+            add_filter( 'xmlrpc_methods', function ( $methods ) {
+                unset( $methods['pingback.ping'] );
+                unset( $methods['pingback.extensions.getPingbacks'] );
+                return $methods;
+            } );
         }
         /**
          * Disallow the file editors.
@@ -84,29 +102,5 @@ class VASES_MODUL_ETC {
         if ( $flug_auto_update_theme == true ) {
             add_filter( 'auto_update_theme',  '__return_true', 99999 );
         }
-    }
-
-    /**
-     * Remove body class
-     * @param  array $classes Array of the css class
-     * @return array          Array of the new css class
-     */
-    public static function remove_body_class( $classes ) {
-        $subject     = $classes;
-        $pattern     = array( '/\A(author\-[\w+\-]*)\z/i' );
-        $replacement = array( '' );
-        $classes     = preg_replace( $pattern, $replacement, $subject );
-
-        return array_values( array_filter( $classes ) );
-    }
-
-    /**
-     * Disallow xmlrpc pingback.
-     * @param  array $methods An array of XML-RPC methods.
-     * @return array          An array of XML-RPC methods.
-     */
-    public static function xmlrpc_methods( $methods ) {
-        unset( $methods['pingback.ping'] );
-        return $methods;
     }
 }

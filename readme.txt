@@ -45,6 +45,21 @@ The description covers it all.
 
 == Changelog ==
 
+= 0.4.4 =
+* Bug fix.
+
+= 0.4.3 =
+* Add the add field button.
+
+= 0.4.2 =
+* Update the language file.
+
+= 0.4.1 =
+* Bug fix.
+
+= 0.4.0 =
+* Add the ability to prohibit access to the admin page in the IP address or hostname.
+
 = 0.3.4 =
 * Bug fix.
 
