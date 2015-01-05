@@ -45,6 +45,9 @@ The description covers it all.
 
 == Changelog ==
 
+= 0.4.5 =
+* Bug fix.
+
 = 0.4.4 =
 * Bug fix.
 
